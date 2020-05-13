@@ -1,0 +1,13 @@
+---
+title: "Elevated UV radiation suppresses induced morphological defenses in *Daphnia pulex*"
+subtitle: Franceen Eshun-Wilson, Raoul Wolf, Erik Sperfeld, Tom Andersen and Dag Olav Hessen
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This repository contains the raw data and R scripts for "Elevated UV radiation suppresses induced morphological defenses in *Daphnia pulex*" by Eshun-Wilson *et al.*
+
+The `data` folder contains the raw data used for the anaylses, and the `scripts` folder contains the R scripts which were written for the analyses. 
