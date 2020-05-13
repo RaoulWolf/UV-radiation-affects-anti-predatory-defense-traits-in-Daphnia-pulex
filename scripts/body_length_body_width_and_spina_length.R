@@ -10,6 +10,8 @@ data %>%
   drop_na() ->
   full_data
 
+## Full model
+
 mvbrmsformula(brmsformula(formula = Body_length ~ Clone * Kairomone * UVR * Instar + (1 | i | Clone:Treatment:Mother_ID),
                           flist = list(sigma ~ Clone),
                           family = gaussian),
@@ -30,25 +32,25 @@ c(## Correlation structure
   prior(prior = lkj(1), class = "rescor"),
   
   ## Average (mu) effect priors
-  prior(prior = normal(1, 5), class = "Intercept", resp = "Bodylength"),
-  prior(prior = normal(1, 5), class = "Intercept", resp = "Bodywidth"),
-  prior(prior = normal(1, 5), class = "Intercept", resp = "Spinalength"),
-  prior(prior = normal(0, 5), class = "b", resp = "Bodylength"),
-  prior(prior = normal(0, 5), class = "b", resp = "Bodywidth"),
-  prior(prior = normal(0, 5), class = "b", resp = "Spinalength"),
+  prior(prior = normal(0, 10), class = "Intercept", resp = "Bodylength"),
+  prior(prior = normal(0, 10), class = "Intercept", resp = "Bodywidth"),
+  prior(prior = normal(0, 10), class = "Intercept", resp = "Spinalength"),
+  prior(prior = normal(0, 10), class = "b", resp = "Bodylength"),
+  prior(prior = normal(0, 10), class = "b", resp = "Bodywidth"),
+  prior(prior = normal(0, 10), class = "b", resp = "Spinalength"),
 
   ## Variance (sigma) effect priors
-  prior(prior = normal(0, 5), class = "Intercept", resp = "Bodylength", dpar = "sigma"),
-  prior(prior = normal(0, 5), class = "Intercept", resp = "Bodywidth", dpar = "sigma"),
-  prior(prior = normal(0, 5), class = "Intercept", resp = "Spinalength", dpar = "sigma"),
-  prior(prior = normal(0, 5), class = "b", resp = "Bodylength", dpar = "sigma"),
-  prior(prior = normal(0, 5), class = "b", resp = "Bodywidth", dpar = "sigma"),
-  prior(prior = normal(0, 5), class = "b", resp = "Spinalength", dpar = "sigma"),
+  prior(prior = normal(0, 10), class = "Intercept", resp = "Bodylength", dpar = "sigma"),
+  prior(prior = normal(0, 10), class = "Intercept", resp = "Bodywidth", dpar = "sigma"),
+  prior(prior = normal(0, 10), class = "Intercept", resp = "Spinalength", dpar = "sigma"),
+  prior(prior = normal(0, 10), class = "b", resp = "Bodylength", dpar = "sigma"),
+  prior(prior = normal(0, 10), class = "b", resp = "Bodywidth", dpar = "sigma"),
+  prior(prior = normal(0, 10), class = "b", resp = "Spinalength", dpar = "sigma"),
   
   ## Group-level ("random") effect priors
-  prior(prior = normal(0, 5), class = "sd", resp = "Bodylength"),
-  prior(prior = normal(0, 5), class = "sd", resp = "Bodywidth"),
-  prior(prior = normal(0, 5), class = "sd", resp = "Spinalength")) ->
+  prior(prior = normal(0, 10), class = "sd", resp = "Bodylength"),
+  prior(prior = normal(0, 10), class = "sd", resp = "Bodywidth"),
+  prior(prior = normal(0, 10), class = "sd", resp = "Spinalength")) ->
   full_priors
 
 brm(formula = full_formula,
@@ -64,10 +66,22 @@ bl_bw_sl_full %>%
   plot()
 
 bl_bw_sl_full %>% 
-  pp_check(type = "dens_overlay")
+  pp_check(type = "dens_overlay", resp = "Bodylength")
 
 bl_bw_sl_full %>% 
-  pp_check(type = "ecdf_overlay")
+  pp_check(type = "dens_overlay", resp = "Bodywidth")
+
+bl_bw_sl_full %>% 
+  pp_check(type = "dens_overlay", resp = "Spinalength")
+
+bl_bw_sl_full %>% 
+  pp_check(type = "ecdf_overlay", resp = "Bodylength")
+
+bl_bw_sl_full %>% 
+  pp_check(type = "ecdf_overlay", resp = "Bodywidth")
+
+bl_bw_sl_full %>% 
+  pp_check(type = "ecdf_overlay", resp = "Spinalength")
 
 bl_bw_sl_full %>% 
   fixef()
@@ -102,10 +116,22 @@ bl_bw_sl_red %>%
   plot()
 
 bl_bw_sl_red %>% 
-  pp_check(type = "dens_overlay")
+  pp_check(type = "dens_overlay", resp = "Bodylength")
 
 bl_bw_sl_red %>% 
-  pp_check(type = "ecdf_overlay")
+  pp_check(type = "dens_overlay", resp = "Bodywidth")
+
+bl_bw_sl_red %>% 
+  pp_check(type = "dens_overlay", resp = "Spinalength")
+
+bl_bw_sl_red %>% 
+  pp_check(type = "ecdf_overlay", resp = "Bodylength")
+
+bl_bw_sl_red %>% 
+  pp_check(type = "ecdf_overlay", resp = "Bodywidth")
+
+bl_bw_sl_red %>% 
+  pp_check(type = "ecdf_overlay", resp = "Spinalength")
 
 bl_bw_sl_red %>% 
   fixef()
