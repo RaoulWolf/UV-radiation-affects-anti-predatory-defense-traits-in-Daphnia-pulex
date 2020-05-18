@@ -11,8 +11,8 @@ The `data` folder contains the raw data used for the anaylses, and the
 `scripts` folder contains the R scripts which were written for the
 analyses. The fitted models are in the `models` folder.
 
-The following R packages need to be installed to run the analysis:
+The following R package needs to be installed to run the analysis:
 
 ``` r
-install.packages(c("tidyverse", "brms"))
+install.packages("brms")
 ```
