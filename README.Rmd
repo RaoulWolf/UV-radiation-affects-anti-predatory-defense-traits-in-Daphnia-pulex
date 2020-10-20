@@ -1,5 +1,5 @@
 ---
-title: "Elevated UV radiation suppresses induced morphological defenses in *Daphnia pulex*"
+title: "UV radiation affects anti-predatory defense traits in *Daphnia pulex*"
 output: github_document
 ---
 
@@ -7,11 +7,16 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This repository contains the raw data and R scripts for "Elevated UV radiation suppresses induced morphological defenses in *Daphnia pulex*" by Eshun-Wilson *et al.*, 2020. A link to the final version of the article will be added here in the future. 
+This repository contains the raw data and R scripts for "UV radiation affects anti-predatory defense traits in *Daphnia pulex*" by Eshun-Wilson *et al.*, 2020. A link to the final version of the article will be added here in the future. 
 
-The `data` folder contains the raw data used for the anaylses, and the `scripts` folder contains the R scripts which were written for the analyses. The fitted models are in the `models` folder. 
+The `data` folder contains the raw data used for the analyses, and the `scripts` folder contains the R scripts which were written for the analyses. The fitted models are in the `models` folder, and all graphics are in the `figures` folder. 
 
 The following R package needs to be installed to run the analysis:
 ```{r,eval=FALSE}
 install.packages("brms")
+```
+
+Additionally, all graphics require the `tidyverse` package collection, especially `ggplot2`, and `patchwork`. They can be installed as follows:
+```{r,eval=FALSE}
+install.packages(c("tidyverse", "patchwork"))
 ```
