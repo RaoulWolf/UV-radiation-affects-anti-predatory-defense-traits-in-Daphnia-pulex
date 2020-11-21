@@ -3,8 +3,8 @@ UV radiation affects anti-predatory defense traits in *Daphnia pulex*
 
 This repository contains the raw data and R scripts for “UV radiation
 affects anti-predatory defense traits in *Daphnia pulex*” by
-Eshun-Wilson *et al.*, 2020, Ecology and Evolution (A link to the final
-version of the article will be added here in the future.) All data is
+Eshun-Wilson *et al.*, 2020, Ecology and Evolution,
+[doi:10.1002/ece3.6999](https://doi.org/10.1002/ece3.6999). All data is
 also available on Dryad: <https://doi.org/10.5061/dryad.kprr4xh3c>
 
 The `data` folder contains the raw data used for the analyses, and the
